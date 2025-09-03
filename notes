@@ -1,0 +1,26 @@
+Package.json is a configutation for npm,it keeps track of dependencies
+
+
+bundler-packages our app,minimizing size and removing unnecessary things to be ready to get shipped to production.e.g-webpack,vite,etc
+
+Package-lock.json keeps track of exact version.
+
+npx -- executing a package
+
+#parcel
+-Dev build
+-local server
+-hmr-hot module replacement
+-file watching algorithm
+-caching-faster builds
+-image optimization
+-minification
+-bundling
+-compress
+-consistent hashing
+-code splitting
+-differential bundling
+-error handling
+-diagnostic  
+-https
+-tree shaking
