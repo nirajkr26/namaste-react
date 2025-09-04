@@ -24,3 +24,16 @@ npx -- executing a package
 -diagnostic  
 -https
 -tree shaking
+
+
+jsx- html like or xml like syntax,jsx is not html inside javascript
+(jsx is transpiled before it reaches js)-babel
+
+jsx->react.createElemnt->reactElement -js object->html element(render)
+
+component composition-putting one component inside another
+
+jsx can execute any piece of javascript code inside {}.
+
+jsx also sanitizes
+
