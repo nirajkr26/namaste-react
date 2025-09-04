@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.logo > img {
+  width: 100px;
+}
+
+.items > ul {
+  display: flex;
+}
+
+.items > ul > li {
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+}
+
+.search{
+  margin: 10px;
+}
+
+.search>input{
+  margin-left: 10px;
+}
+
+.card{
+  height: 250px;
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: gainsboro;
+  margin: 5px;
+}
+
+.res-img{
+  width: 190px;
+}
+
+.res-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
