@@ -1,0 +1,14 @@
+*header
+-logo
+-nav items
+
+*body
+-search
+-restaurant Container
+--restaurant card
+
+*footer
+-copyright
+-links
+-address
+-contact
