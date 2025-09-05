@@ -19,14 +19,14 @@ const Header = () => {
     );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
     return (
         <div className="card">
             <img className="res-img" src="https://blog.swiggy.com/wp-content/uploads/2024/02/Masala-Dosa-1024x538.jpg"></img>
-            <h2>Meghna Foods</h2>
-            <p>burger,fries,pizza</p>
-            <p>4.4 stars</p>
-            <p>38 minutes</p>
+            <h2>{props.name}</h2>
+            <p>{props.cuisine}</p>
+            <p>{props.rating} stars</p>
+            <p>{props.time} minutes</p>
         </div>
     )
 };
@@ -38,18 +38,9 @@ const Body = () => {
                 search<input type="text"></input>
             </div>
             <div className="res-container">
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
+                <RestaurantCard name="meghna foods" cuisine="biryani,chicken 65" rating="4.4" time="38" />
+                <RestaurantCard name="kfc" cuisine="chicken legs and wings" rating="4.8" time="25" />
+
             </div>
         </div>
     )
