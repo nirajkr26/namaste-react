@@ -1,14 +1,18 @@
 import Card from "./Card"
+import { data } from "../utils/resList";
 
 const Body = () => {
     return (
         <div className="body">
-            <div className="search">
-                search<input type="text"></input>
+            <div className="filter">
+                <button className="filter-btn">Top Rated Restaurants</button>
             </div>
             <div className="res-container">
-                <Card name="meghna foods" cuisine="biryani,chicken 65" rating="4.4" time="38" />
-                <Card name="kfc" cuisine="chicken legs and wings" rating="4.8" time="25" />
+                {
+                    data.restaurants.map((resList)=>(
+                        <Card key={resList.info.id} resList={resList}/>
+                    ))
+                }
 
             </div>
         </div>
