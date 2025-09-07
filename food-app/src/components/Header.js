@@ -1,7 +1,11 @@
-import {LOGO_URL} from "../utils/contents" 
+import { useState } from "react";
+import { LOGO_URL } from "../utils/contents"
 // named import
 
 const Header = () => {
+    const [btnName, setBtnName] = useState("login");
+
+
     return (
         <div className="header">
             <div className="logo">
@@ -13,9 +17,12 @@ const Header = () => {
                     <li>about us</li>
                     <li>contact</li>
                     <li>cart</li>
+                    <button onClick={() => {
+                        btnName == "login" ? setBtnName("logout") : setBtnName("login")
+                    }} className="login">{btnName}</button>
                 </ul>
             </div>
-        </div>
+        </div >
     );
 };
 export default Header;

@@ -57,3 +57,5 @@ import {Component} from "path;
 react uses reconciliation algorithm(react fiber)
 
 // better ux : loads->render->api->render
+
+//shimmer effect -> showing fake skeleton until page data loads
