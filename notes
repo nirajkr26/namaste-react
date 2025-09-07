@@ -37,3 +37,23 @@ jsx can execute any piece of javascript code inside {}.
 
 jsx also sanitizes
 
+* two types of export/import
+-default export/import
+
+export default Component;
+import Component from "path";
+
+-named export/import
+
+export const Component;
+import {Component} from "path;
+
+
+#react hooks
+(normal js utility functions)
+- useState() - super powerful variables
+- useEffect()
+
+react uses reconciliation algorithm(react fiber)
+
+// better ux : loads->render->api->render
