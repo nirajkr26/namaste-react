@@ -2,7 +2,7 @@
 
 const Card = (props) => {
     const { resList } = props;
-    const { name, cuisines, avgRating, deliveryTime } = resList?.info;
+    const { name, cuisines, avgRating, deliveryTime } = resList;
     return (
         <div className="card">
             <img className="res-img" src="https://blog.swiggy.com/wp-content/uploads/2024/02/Masala-Dosa-1024x538.jpg"></img>
