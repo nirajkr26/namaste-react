@@ -5,7 +5,9 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
     //State variable -super powerful variable
-    const [filteredData, setFilteredData] = useState([]);
+    const [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const [filteredData, setFilteredData] = useState(listOfRestaurants);
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -26,6 +28,7 @@ const Body = () => {
             .map((c) => c?.card?.card?.info) // get restaurant info
             .filter((info) => info); // remove undefined
 
+        setListOfRestaurants(restaurants);
         setFilteredData(restaurants);
 
     }
@@ -35,16 +38,33 @@ const Body = () => {
 
 
     //normal js variable
-    // let filteredData = data;
-    return filteredData.length == 0 ? <Shimmer /> : (
+    // let listOfRestaurants = data;
+    return listOfRestaurants.length == 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="filter">
+            <div className="filter" style={{ display: "flex", gap: "10px" }}>
+                <div className="search">
+                    <input type="text" className="search-box" value={searchText} onChange={(e) => {
+                        setSearchText(e.target.value);
+
+                        if(e.target.value==""){
+                            setFilteredData(listOfRestaurants)
+                        }
+                    }} />
+
+                    <button onClick={() => {
+                        const filteredData = listOfRestaurants.filter((res) => res.name.toLowerCase().includes(searchText.toLowerCase()));
+
+                        setFilteredData(filteredData)
+
+                    }}>Search</button>
+
+                </div>
                 <button className="filter-btn" onClick={() => {
 
-                    const filtered = filteredData.filter(
+                    const filtered = listOfRestaurants.filter(
                         (res) => res.avgRating > 4
                     )
-                    setFilteredData(filtered);
+                    setListOfRestaurants(filtered);
 
                 }} >Top Rated Restaurants</button>
             </div>
