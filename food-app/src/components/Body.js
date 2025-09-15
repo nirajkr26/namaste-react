@@ -2,6 +2,7 @@ import Card from "./Card"
 import { data } from "../utils/resList";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     //State variable -super powerful variable
@@ -46,7 +47,7 @@ const Body = () => {
                     <input type="text" className="search-box" value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
 
-                        if(e.target.value==""){
+                        if (e.target.value == "") {
                             setFilteredData(listOfRestaurants)
                         }
                     }} />
@@ -71,7 +72,9 @@ const Body = () => {
             <div className="res-container">
                 {
                     filteredData.map((resList) => (
-                        <Card key={resList.id} resList={resList} />
+                        <Link to={"/restaurants/" + resList.id}  key={resList.id}>
+                            <Card resList={resList} />
+                        </Link>
                     ))
                 }
 
