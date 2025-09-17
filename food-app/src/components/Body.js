@@ -3,6 +3,7 @@ import { data } from "../utils/resList";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlinestatus";
 
 const Body = () => {
     //State variable -super powerful variable
@@ -36,7 +37,12 @@ const Body = () => {
 
     //conditional rendering
 
+    const onlineStatus = useOnlineStatus();
 
+    if (onlineStatus==false)
+        return (
+            <h1>Looks you are offline</h1>
+        )
 
     //normal js variable
     // let listOfRestaurants = data;
@@ -72,7 +78,7 @@ const Body = () => {
             <div className="res-container">
                 {
                     filteredData.map((resList) => (
-                        <Link to={"/restaurants/" + resList.id}  key={resList.id}>
+                        <Link to={"/restaurants/" + resList.id} key={resList.id}>
                             <Card resList={resList} />
                         </Link>
                     ))

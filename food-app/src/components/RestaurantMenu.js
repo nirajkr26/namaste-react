@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    
+
     const { resId } = useParams();
-    
+
     const resInfo = useRestaurantMenu(resId);
-    
+
     if (resInfo == null) return <Shimmer />;
 
     const { name, areaName, avgRating } = resInfo?.cards[2]?.card?.card?.info;
