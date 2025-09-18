@@ -26,10 +26,13 @@ class User extends React.Component {
     render() {
         const { name, location, avatar_url } = this.state.userInfo;
         return (
-            <div className="user-card">
-                <img src={avatar_url} />
-                <h2>Name: {name}</h2>
-                <h3>Location: {location} </h3>
+            <div className="flex justify-center">
+
+                <div className="border-2 flex flex-col items-center p-3 rounded -lg">
+                    <img className="w-80 rounded-full" src={avatar_url} />
+                    <h2 className="text-lg">Name: {name}</h2>
+                    <h3 className="text-lg">Location: {(location) ? location : "NA"} </h3>
+                </div>
             </div>
         )
     }

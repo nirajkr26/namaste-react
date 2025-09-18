@@ -14,22 +14,22 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="header">
-            <div className="logo">
-                <img src={LOGO_URL}></img>
-            </div>
-            <div className="items">
-                <ul>
-                    <li>Online:{onlineStatus ? "✅" : "❌"}</li>
-                    <li><Link to={"/"}>home</Link></li>
-                    <li><Link to="/about">about us</Link></li>
-                    <li><Link to={"/contact"}>contact</Link></li>
-                    <li><Link to={"/grocery"}>grocery</Link></li>
-                    <li>cart</li>
+        <div className={`flex  justify-between h-auto p-6 ${(onlineStatus)?"md:bg-green-200":"bg-red-300" } bg-pink-200`}>
 
-                    <button onClick={() => {
+            <img className="h-10" src={LOGO_URL}></img>
+
+            <div className="">
+                <ul className="flex items-center">
+                    <li className="px-3 hover:font-semibold">Online:{onlineStatus ? "✅" : "❌"}</li>
+                    <li className="px-3 hover:font-semibold"><Link to={"/"}>home</Link></li>
+                    <li className="px-3 hover:font-semibold"><Link to="/about">about us</Link></li>
+                    <li className="px-3 hover:font-semibold"><Link to={"/contact"}>contact</Link></li>
+                    <li className="px-3 hover:font-semibold"><Link to={"/grocery"}>grocery</Link></li>
+                    <li className="px-3 hover:font-semibold">cart</li>
+
+                    <button className="bg-blue-600 text-white px-2 py-1 rounded-md" onClick={() => {
                         btnName == "login" ? setBtnName("logout") : setBtnName("login")
-                    }} className="login">{btnName}</button>
+                    }} >{btnName}</button>
                 </ul>
             </div>
         </div >
