@@ -16,5 +16,21 @@ const Card = (props) => {
     )
 };
 
+//Higher Order Component
+
+//input - Card => CardPromoted
+
+
+export const withPromotedLabel = (Card) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-black text-white rounded-tl-xl flex justify-center rounded-tr-xl px-2 w-60 ">Promoted</label>
+                <Card {...props} />
+            </div>
+        );
+    };
+};
+
 export default Card;
 

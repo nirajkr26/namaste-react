@@ -1,4 +1,4 @@
-import Card from "./Card"
+import Card, { withPromotedLabel } from "./Card"
 import { data } from "../utils/resList";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -10,6 +10,8 @@ const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredData, setFilteredData] = useState(listOfRestaurants);
     const [searchText, setSearchText] = useState("");
+
+    const CardPromoted = withPromotedLabel(Card);
 
     useEffect(() => {
         fetchData();
@@ -75,11 +77,14 @@ const Body = () => {
 
                 }} >Top Rated Restaurants</button>
             </div>
+
             <div className="my-5 flex flex-wrap justify-center gap-10">
                 {
                     filteredData.map((resList) => (
                         <Link to={"/restaurants/" + resList.id} key={resList.id}>
-                            <Card resList={resList} />
+                           
+                            {resList.promoted ? (<CardPromoted resList={resList} />) : (<Card resList={resList} />)}
+
                         </Link>
                     ))
                 }
