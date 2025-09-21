@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { LOGO_URL } from "../utils/contents"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlinestatus";
+import UserContext from "../utils/UserContext";
+
 // named import
 
 const Header = () => {
     const [btnName, setBtnName] = useState("login");
+
+    const { loggedInUser } = useContext(UserContext);
 
     // if no dependency array=> useEffect is called on every render
     // if dependency array empty=[]=>useEffect is called on initial render(just once)
@@ -14,7 +18,7 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className={`flex  justify-between h-auto p-6 ${(onlineStatus)?"md:bg-green-200":"bg-red-300" } bg-pink-200`}>
+        <div className={`flex  justify-between h-auto p-6 ${(onlineStatus) ? "md:bg-green-200" : "bg-red-300"} bg-pink-200`}>
 
             <img className="h-10" src={LOGO_URL}></img>
 
@@ -30,6 +34,8 @@ const Header = () => {
                     <button className="bg-blue-600 text-white px-2 py-1 rounded-md" onClick={() => {
                         btnName == "login" ? setBtnName("logout") : setBtnName("login")
                     }} >{btnName}</button>
+
+                    <li>{loggedInUser}</li>
                 </ul>
             </div>
         </div >
