@@ -12,9 +12,11 @@
   "license": "ISC",
   "description": "Online food ordering website",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
     "@tailwindcss/postcss": "^4.1.13",
     "react": "^18.1.1",
     "react-dom": "^18.1.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^6.8.2",
     "tailwindcss": "^4.1.13"
   },

@@ -11,6 +11,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/cart";
+
 // chunking / code splitting / dynamic bundling / lazy loading // on demand loading
 
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -29,14 +33,17 @@ const AppLayout = () => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ loggedInUser: userName }}>
-            <div className="app">
-                <Header />
-                <Outlet />
-                <Footer />
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{ loggedInUser: userName }}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
+                    <Footer />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     );
+
 };
 
 
@@ -66,6 +73,10 @@ const appRouter = createBrowserRouter([
                 path: "/grocery",
                 element: <Suspense fallback={<Shimmer />}><Grocery />
                 </Suspense>
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }
         ],
         errorElement: <Error />,
