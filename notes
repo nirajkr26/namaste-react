@@ -13,6 +13,8 @@ npx -- executing a package
 -hmr-hot module replacement
 -file watching algorithm
 -caching-faster builds
+`
+
 -image optimization
 -minification
 -bundling
@@ -59,3 +61,41 @@ react uses reconciliation algorithm(react fiber)
 // better ux : loads->render->api->render
 
 //shimmer effect -> showing fake skeleton until page data loads
+
+
+#2 types routing in web apps
+- client side routing
+- server side routing
+
+
+// higher order component- a function that takes a component and returns an enhanced component
+
+// lifting the state up
+
+
+#### REDUX
+
+big state object
+multiple different slices
+
+when to update the slice, dispatch action will be done then reducer will be called which updates the slice
+
+selector is used to get data from store
+
+
+//types of testing(developers):
+- unit testing
+- integration testing   
+- end to end testing
+
+#setting up testing in our app
+
+install react testing library
+install jest
+install babel dependencies
+configure babel
+configure parcel config file to disable default babel transpilation
+jest----- npx jest -- init
+intall jsdom library
+install @babel/preset-react --to make jsx work in test cases
+install @testing-library/jest-dom
